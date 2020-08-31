@@ -8,7 +8,7 @@ void ShellSort(int arr[], int n)
 	// Gap (i) is calculated in this loop.
 	for( gap = n/2; gap > 0; gap/=2)
 	{
-		for(j = gap; j < n; j++)
+		for(j = gap; j < n; j++)    // insertion sort with 1 is replaced by gap
 		{
 			for(k = j-gap; k >= 0; k = k-gap)
 			{

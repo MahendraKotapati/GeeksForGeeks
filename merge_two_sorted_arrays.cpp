@@ -5,27 +5,35 @@
 typedef long long ll;
 using namespace std;
 
-ll find_pivot(vector <ll>&A,ll n,vector <ll>&B,ll m)
+void merge(int  A[],int B[],int n,int m)
 {
-    ll i=0,j=0,c=0;
+	int i = n - 1;
+	int j = 0;
+	while (i >= 0 && j < m)
+	{
+		if (A[i] > B[j])
+			swap(A[i], B[j]);
+			
+	    i--;
+	    j++;
+	}
 
-    while(c<n)
-    {
-        if(A[i]<B[j])
-            i++;
-        else  j++;
-        c++;
-    }
-    if(i<n)
-        return A[i];
-    return B[j];
+	sort(A, A+n);
+	sort(B, B+m);
 }
+
+ll cal_gap(ll gap)
+{   
+    if(gap==1) return 0;
+    return (gap/2)+(gap%2);
+}
+
 
 int main()
 {
     ios_base::sync_with_stdio(false);cin.tie(0);
 
-    ll t,i,j,k,n,m,pivot;
+    ll t,i,j,k,n,m,gap,start;
     cin>>t;
 	
     while(t--)
@@ -39,37 +47,30 @@ int main()
         for(i=0;i<m;i++)
             cin>>B[i];
 
-        /*i=k=0;
-        while(i<n)
+        /*gap = (n+m);
+        for(gap = cal_gap(gap);gap>0;gap=cal_gap(gap))
         {
-            if(A[i]<=B[j]){
-                i++; continue;
+            for(i=0;i+gap<n;i++)
+                if(A[i]>A[i+gap])
+                    swap(A[i],A[i+gap]);
+            
+            start = (gap>n)?  gap-n : 0;
+
+            for(j=start ; i<n && j<m;i++,j++)
+            {
+                if(A[i]>B[j])
+                    swap(A[i],B[j]);
             }
-            swap(A[i],B[j]);
-            swap(B[j],B[k]);
-            while(k+1<m && B[k]>B[k+1])
-                swap(B[k],B[k+1]),k++; 
-            i++;j++;
+
+           
+            for(j=0;j+gap<m;j++)
+                if(B[j]>B[j+gap])
+                    swap(B[j],B[j+gap]);
+            
         }
         */
 
-        pivot = find_pivot(A,n,B,m);
-        //cout<<pivot<<" ";
-        //B[0]=pivot;
-        i=0;j=0;
-        while(i<n && j<m)
-        {
-            while(i<n && A[i]<pivot)
-                i++;
-            while(j<m && B[j]>=pivot)
-                j++; 
-            if(i<n && j<m)
-                swap(A[i],B[j]);
-        }
-
-        //sort(A.begin(),A.end());
-        //sort(B.begin(),B.end());
-
+         
         for(i=0;i<n;i++)
             cout<<A[i]<<" ";
         
@@ -81,3 +82,12 @@ int main()
     
     return 0;
 }
+
+/*  
+
+x x x x x     x x x x x  
+
+0 1 2 3    5 6 7 8 9  values
+0 1 2 3    4 5 6 7 8  indexes
+
+*/

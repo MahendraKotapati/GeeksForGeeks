@@ -28,7 +28,7 @@ void partition(Node *head,Node **a,Node **b)
 
     *a = head;
     *b = slow->next;
-    slow->next = NULL;
+    slow->next = NULL; // very important
     
 }
 

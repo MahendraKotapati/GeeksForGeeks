@@ -34,26 +34,26 @@ int bfs()
     {  
         count = q.size(); 
 
-        while(count--)
+        while(count--)  // this is to know level
         {
             auto curr = q.front();
         
             i = curr.F; j = curr.S;
-            //arr[i][j] = 2;
+            //arr[i][j] = 2;  we shouldn't do here
             q.pop();
 
             for(y=0;y<4;y++)
             {
                 if(is_valid(i+dx[y],j+dy[y]))
                 {   
-                    arr[i+dx[y]][j+dy[y]] = 2;  // very important , while considering immediately we make to rotten because , other
+                    arr[i+dx[y]][j+dy[y]] = 2;  // very important , while considering immediately we make adjacent one rotten because , other
                     q.push({i+dx[y],j+dy[y]});
                 }
 
             }
         }
-        if(!q.empty())
-        _time++;
+        if(!q.empty())  // to understand this case assume only 1 one element in queue and futher no more elements are added.
+        _time++;  // this is like level
     }
     
     return _time;
@@ -91,8 +91,7 @@ int main()
 
 /*
 
-2 1 0 2 1 
-1 0 1 2 1 
-1 0 0 2 1
+to understand why we immediately rottening just check below case you can understand
+[[2,2],[1,1],[0,0],[2,0]]
 
 */
