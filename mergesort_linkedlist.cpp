@@ -1,4 +1,9 @@
-// { Driver Code Starts
+/*  
+   Time complexity: O(nlogn)
+   space complexity: O(1)
+
+   unlike mergesort in array we don't need extra space 
+ */
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,18 +38,18 @@ void partition(Node *head,Node **a,Node **b)
 }
 
 
-Node *merge(Node *a,Node *b)
+Node *merge(Node *a,Node *b) 
 {
     Node *ans=NULL;
-    ans = (Node*)malloc(sizeof(Node));
+    //ans = (Node*)malloc(sizeof(Node));  //we should not allocate memory
     if(a==NULL) return b;
     if(b==NULL) return a;
 
     if(a->data<=b->data) {
-        ans->data = a->data; ans->next = merge(a->next,b);
+        ans = a; ans->next = merge(a->next,b);
     }
     else {
-        ans->data = b->data; ans->next = merge(a,b->next);
+         ans = b; ans->next = merge(a,b->next);
     }
     return ans;
 }

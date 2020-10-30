@@ -45,7 +45,7 @@ int main()
         if(count&1)
             ans = min_heap.top();   
         else 
-            ans = (min_heap.top()+max_heap.top())/2; 
+            ans = (min_heap.top()+max_heap.top())/2.0; 
 
         cout<<ans<<"\n";      
     }

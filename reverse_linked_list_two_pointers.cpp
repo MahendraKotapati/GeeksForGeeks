@@ -63,7 +63,8 @@ void printList(struct Node* head)
 		printf("%d ", temp->data); 
 		temp = temp->next; 
 	} 
-} 
+}
+ 
 
 /* Driver program to test above function*/
 int main() 

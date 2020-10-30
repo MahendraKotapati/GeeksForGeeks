@@ -21,3 +21,10 @@ msg_box = driver.find_element_by_class_name('_13mgZ')
 for i in range(count):
     msg_box.send_keys(msg)
     driver.find_element_by_class_name('_3M-N-').click()
+
+
+class Test:
+    _emp  = 10
+
+a = Test()
+print(a._emp)

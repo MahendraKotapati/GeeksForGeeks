@@ -1,4 +1,4 @@
-/*correct solution refer  https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/ */
+/*  solution refer  https://www.geeksforgeeks.org/given-a-number-find-next-smallest-palindrome-larger-than-this-number/ */
 
 #include<bits/stdc++.h>
 #define F first
@@ -102,3 +102,7 @@ int main()
     
     return 0;
 }
+
+/* int i=0; for(i=0;i<n;i++)
+    cout<<arr[i]<<"\n";
+ */

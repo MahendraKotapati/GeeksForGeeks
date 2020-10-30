@@ -1,4 +1,4 @@
-// { Driver Code Starts
+/*  https://www.youtube.com/watch?v=FsxTX7-yhOw */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -30,10 +30,13 @@ void displayCList(Node *head)
     {
         cout << itr->data <<" ";
         itr = itr->right;
+
     } while (head!=itr);
     cout <<endl;
+
     itr=itr->left;
-    do{
+    do
+    {
         cout<<itr->data<<" ";
         itr=itr->left;
     }while(head!=itr);
@@ -137,76 +140,83 @@ struct Node
     }
 };*/
 
-/*Node *rec(Node **root,Node *par,int flag)
+Node *simpleTreeToList(Node *root)
 {
-    if(root==NULL) return *root;
+    Node *head;
 
-    if(flag==0)  // means root
-    {
-        (*root)->left = rec(&(*root)->left,*root,-1);
-        (*root)->right = rec(&(*root)->right,*root,1);
-    }
-    else if(flag==-1)  // left child 
-    {
-        (*root)->left = rec(&(*root)->left,*root,-1);
-        (*root)->right = par;
-    }
-    else    // right child
-    {
-        (*root)->left = par;
-        (*root)->right =rec(&(*root)->right,*root,1);
-    }
-
-    return (flag==-1)? (*root)->right : (*root)->left;
-
-}
-*/
-
-
-Node *rec(Node *root,Node *par,int flag)
-{
-    if(root==NULL) return root;
+    if(root==NULL)
+        return root;
 
     if(root->left==NULL && root->right==NULL)
-    {     
-        (flag==-1)? root->right = par : root->left = par;
         return root;
-    }    
-
-    if(flag==0)  // means root
-    {
-        root->left = rec(root->left,root,-1);
-        root->right = rec(root->right,root,1);
+    
+    if(root->left==NULL)
+    {   
+        head = root;
+        head->left = NULL;
+        head->right = root->right;
     }
-    else if(flag==-1)  // left child 
-    {
-        root->left = rec(root->left,root,-1);
-        root->right = par;
+    else if(root->right==NULL)
+    {   
+        head = root->left;
+        head ->left = root;
+        head ->right = NULL;
     }
-    else    // right child
+    else   
     {
-        root->left = par;
-        root->right =rec(root->right,root,1);
+        head = root->left;
+        head ->left = root;
+        head ->right = root->right;
     }
-
-    return (flag==-1)? root->right : root->left;
-
+    return head->right;
 }
 
-void print(Node *root)
-{
-    Node *temp=root;
+/*   
+     1
+   /   \
+  2     3
 
-    while(temp!=NULL)
-    {
-        cout<<temp->data<<" "; temp = temp->right;
+  2->1->3
+
+ */
+
+Node *pre;
+
+void btree_to_list(Node *root,Node **head)
+{
+
+    if(root==NULL)
+        return ;
+        
+    btree_to_list(root->left,head); 
+    
+    if(pre==NULL)
+        *head = root;        
+    else   
+    {   
+        root->left = pre;
+        pre->right = root;
     }
-}
+    pre = root;
+    btree_to_list(root->right,head);
+} 
 
-Node *bTreeToCList(Node *root)
-{
-    Node *a;
-    a = rec(&root,NULL,0);
-    print(a);
-    return a;
+Node* bTreeToCList(Node *root)
+{   
+    /* convert btree to circulardouble linked list use left and right pointers as prev and next pointers  */  
+    if(root==NULL)
+        return NULL;
+        
+    Node *head; pre = NULL;
+    btree_to_list(root,&head);
+    
+    Node *temp = head;
+    
+    while(temp->right!=NULL)   // moving till end of list
+        temp = temp->right;
+    
+    temp->right = head;   // making list circular 
+    head->left = temp;    // in cicular dll head->prev points tail
+    
+    return head;
 }

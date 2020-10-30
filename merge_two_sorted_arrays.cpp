@@ -58,10 +58,10 @@ int main()
 
             for(j=start ; i<n && j<m;i++,j++)
             {
-                if(A[i]>B[j])
+                
                     swap(A[i],B[j]);
             }
-
+if(A[i]>B[j])
            
             for(j=0;j+gap<m;j++)
                 if(B[j]>B[j+gap])

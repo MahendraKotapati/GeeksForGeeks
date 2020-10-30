@@ -1,3 +1,5 @@
+/*  time complexity : O(V^2)  */
+
 #include <bits/stdc++.h>
 using namespace std;
 int spanningTree(int V,int E,vector<vector<int> > graph);
@@ -7,7 +9,7 @@ int main()
 {
     int t;
     cin>>t;
-    
+
     while(t--)
     {
         int V,E;
@@ -51,7 +53,7 @@ int spanningTree(int V,int E,vector<vector<int> > graph)
 
     
     for(i=0;i<V;i++)
-        dis[i]=INT_MAX,mst[i]=0;
+        dis[i]=INT_MAX,mst[i]=0;   // dst[i] stores minimum of all edges connected to it.
 
     
    dis[0]=0;
@@ -59,15 +61,15 @@ int spanningTree(int V,int E,vector<vector<int> > graph)
    while(c!=V)
    {    
 
-        u = get_min_key(dis,mst,V);
+        u = get_min_key(dis,mst,V);   // O(v) complexity
         mst[u]=1;
         
-        for(j=0;j<V;j++)
+        for(j=0;j<V;j++)     // O(v) complexity
         {
-            if(graph[u][j]!=INT_MAX &&  dis[j]>graph[u][j] && mst[j]==0 )  
-                 dis[j] = graph[u][j],par[j]=u ;    
+            if(graph[u][j]!=INT_MAX &&  dis[j]>graph[u][j] && mst[j]==0 )
+                dis[j] = graph[u][j],par[j]=u;    
             
-        }
+        } 
         
         mst_weight+= dis[u];
         c++;

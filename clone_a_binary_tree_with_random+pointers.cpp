@@ -1,9 +1,11 @@
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
 /* A binary tree node has data, pointer to left child
    and a pointer to right child */
+
 struct Node
 {
 	int data;
@@ -25,9 +27,6 @@ int printInorder(Node* a,Node *b)
 {
     if ((a==NULL and b==NULL) or (a->random==NULL and b->random==NULL))
         return 1;
-
-
-
 
     if(a->random->data == b->random->data and printInorder(a->left,b->left) and printInorder(a->right,b->right))
         return 1;

@@ -19,8 +19,7 @@ int main()
         for(i=low+1;i<n;)
         {
             if(arr[low]<arr[i])
-        }
-        
+        } 
     }
 
     return 0;

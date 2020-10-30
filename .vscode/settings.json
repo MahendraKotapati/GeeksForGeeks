@@ -4,7 +4,8 @@
         "xstring": "cpp",
         "vector": "cpp",
         "cstdio": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "ratio": "cpp"
     },
     "git.ignoreLimitWarning": true
 }
