@@ -1,3 +1,5 @@
+/* use binary search to solve this problem similar to painter partition problem  */
+
 #include<bits/stdc++.h>
 #define F first
 #define S second

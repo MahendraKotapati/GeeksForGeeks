@@ -1,3 +1,30 @@
+/*
+
+we can also use inorder traversal 
+
+class Solution {
+
+public:
+    bool isBST(TreeNode *root,long long int mini,long long int maxi) {
+        
+        if(root==NULL)
+            return 1;
+        
+        if(root->val<mini || root->val>maxi)
+            return 0;
+        
+        return isBST(root->left,mini,root->val-1) && isBST(root->right,root->val+1,maxi);
+    }
+public:
+    bool isValidBST(TreeNode* root) {
+        
+        return isBST(root,LLONG_MIN,LLONG_MAX);
+    }
+};
+
+*/
+
+
 // { Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;

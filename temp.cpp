@@ -1,4 +1,124 @@
+/*  
+
+24
+7 10 20 -16 3 -2 20 12 20 2 5 -6 -2 14 13 -18 -13 20 4 18 0 7 15 19
+
+*/
 #include <bits/stdc++.h>
+using namespace std;
+
+class Solution{
+public:
+    unsigned long long int optimalKeys(int n) {
+         
+        if(n<=6)
+            return n;
+            
+        int dp[n+1],i;
+        
+        for(i=0;i<=6;i++)
+            dp[i] = i;    
+        
+        for(i=7;i<=n;i++)
+            dp[i] = max(max(2*dp[i-3],3*dp[i-4]),4*dp[i-5]);
+            
+        //for(i=1;i<=7;i++)
+        //    cout<<"i:"<<i<<" :"<<dp[i]<<"\n";
+        //dp[2] = 2;
+        //cout<<"n :"<<n<<"\n";
+        return dp[n];
+        
+    }
+};
+
+
+// { Driver Code Starts.
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int N;
+        cin>>N;
+        
+        Solution ob;
+        cout<<ob.optimalKeys(N)<<"\n";
+    }
+    return 0;
+}  // } Driver Code Ends
+
+/*
+// { Driver Code Starts
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector<vector<int> > fourSum(vector<int> &a, int k);
+
+// Position this line where user code will be pasted.
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k, i;
+        cin >> n >> k;
+        vector<int> a(n);
+        for (i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+        vector<vector<int> > ans = fourSum(a, k);
+        for (auto &v : ans) {
+            for (int &u : v) {
+                cout << u << " ";
+            }
+            cout << "$";
+        }
+        if (ans.empty()) {
+            cout << -1;
+        }
+        cout << "\n";
+    }
+    return 0;
+}// } Driver Code Ends
+
+
+// User function template for C++
+
+// arr[] : int input array of integers
+// k : the quadruple sum required
+vector<vector<int> > fourSum(vector<int> &arr, int k) {
+    
+    sort(arr.begin(),arr.end());
+    
+    int p,q,l,r,curr_sum,pairs = 0,n = arr.size();
+    vector<vector<int>>ans;
+    
+    for(p=0;p<n;p++)
+    {
+        for(q=p+1;q<n;q++)
+        {
+            curr_sum = k - (arr[p]+arr[q]);
+            l = q+1; r = n-1;
+            
+            while(l<r)
+            {
+                if(arr[l]+arr[r]==curr_sum)
+                    ans.push_back(vector<int>{arr[p],arr[q],arr[l],arr[r]});
+                    
+                if(arr[l]+arr[r]<curr_sum)
+                    l++;
+                else 
+                    r--;
+            }
+            
+        }
+    }
+     return ans;
+}
+*/
+
+
+/*#include <bits/stdc++.h>
 using namespace std;
 
 
@@ -15,7 +135,7 @@ int main()
     }
     return 0;
 }
- 
+ */
 
 /*  
 
@@ -76,6 +196,7 @@ int main()
 }
 
 
+
 void Nqueen(int k)
 {
     if(k>n) return ;
@@ -93,6 +214,7 @@ void Nqueen(int k)
 // graph colouring.cpp
 
 
+/*
 void nextColor(int k)
 {
     while(1)
@@ -126,8 +248,7 @@ void graphColor(int k)
     }
 }
 
-
-
+*/
 
 /*
              7
@@ -146,6 +267,7 @@ void graphColor(int k)
 
 // 
 
+/*
 void increment_middle()
 {
     int mid = len/2;
@@ -226,6 +348,7 @@ Node reverseLL(Node **head,Node **tail)
 
 }   
 
+*/
 
 /*
      SC           EC
@@ -237,3 +360,4 @@ Node reverseLL(Node **head,Node **tail)
 
 
 */
+
