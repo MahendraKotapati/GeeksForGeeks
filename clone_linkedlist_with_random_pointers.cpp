@@ -150,54 +150,26 @@ struct Node {
 
 // Should return the head of the copied linked list the
 // output will be 1 if successfully copied
-Node *copyList(Node *head) {
 
-    if(head==NULL)
+Node *copyLeftRight(Node *root)
+{
+    if(root==NULL)
+        return NULL;
+    
+    copyLeftRight()
+
+}
+
+
+
+
+Node *copyList(Node *root) {
+
+    if(root==NULL)
         return NULL;
 
-    Node *temp=head,*n,*clone_head,*clone;
+    copyLeftRight(root);
+    copyRandom(root);
+    restoreTree(root);
 
-    while(temp!=NULL)
-    {
-        n = (struct Node*)malloc(sizeof(struct Node));
-        n->data = temp->data;
-        n->next = temp->next;
-        n->arb = NULL;
-        temp->next = n;
-
-        temp =  temp->next->next;
-    }
-
-    temp = head;
-    while(temp!=NULL && temp->next!=NULL)  // assigning arbitarty pointers 
-    {   
-        if(temp->arb!=NULL)
-            temp->next->arb = temp->arb->next;
-        else  
-            temp->next->arb = NULL;
-
-        temp = temp->next->next;
-         
-    }
-    
-   
-    clone_head = head->next;
-    
-
-    temp = head;  clone = clone_head;
-    while(clone!=NULL && temp!=NULL)
-    {   
-        if(temp->next!=NULL)
-        {
-            temp->next = temp->next->next;
-            temp = temp->next ;
-        }
-        if(clone->next!=NULL)
-        {
-            clone->next = clone->next->next;   
-            clone = clone->next ;
-        }
-    }
-
-    return clone_head;
 }

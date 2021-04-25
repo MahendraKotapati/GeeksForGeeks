@@ -1,3 +1,4 @@
+/* https://www.youtube.com/watch?v=WRXCwgdni90&feature=youtu.be  */
 #include<bits/stdc++.h>
 #define F first
 #define S second

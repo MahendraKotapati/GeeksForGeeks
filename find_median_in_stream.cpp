@@ -11,7 +11,7 @@ int main()
 
     ll t,i,min_heap_size,max_heap_size,data,min_top,max_top,count=0,ans;
 	priority_queue <ll>max_heap; // for lower half
-    priority_queue <ll,vector <ll>,greater<ll>>min_heap; // for upper half
+    priority_queue <ll,vector <ll>,greater<ll>>min_heap; // for upper half it stores extra element in case of odd 
 
     cin>>t;
 

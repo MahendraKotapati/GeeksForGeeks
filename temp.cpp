@@ -4,48 +4,6 @@
 7 10 20 -16 3 -2 20 12 20 2 5 -6 -2 14 13 -18 -13 20 4 18 0 7 15 19
 
 */
-#include <bits/stdc++.h>
-using namespace std;
-
-class Solution{
-public:
-    unsigned long long int optimalKeys(int n) {
-         
-        if(n<=6)
-            return n;
-            
-        int dp[n+1],i;
-        
-        for(i=0;i<=6;i++)
-            dp[i] = i;    
-        
-        for(i=7;i<=n;i++)
-            dp[i] = max(max(2*dp[i-3],3*dp[i-4]),4*dp[i-5]);
-            
-        //for(i=1;i<=7;i++)
-        //    cout<<"i:"<<i<<" :"<<dp[i]<<"\n";
-        //dp[2] = 2;
-        //cout<<"n :"<<n<<"\n";
-        return dp[n];
-        
-    }
-};
-
-
-// { Driver Code Starts.
-
-int main(){
-    int t;
-    cin>>t;
-    while(t--){
-        int N;
-        cin>>N;
-        
-        Solution ob;
-        cout<<ob.optimalKeys(N)<<"\n";
-    }
-    return 0;
-}  // } Driver Code Ends
 
 /*
 // { Driver Code Starts
@@ -361,3 +319,123 @@ Node reverseLL(Node **head,Node **tail)
 
 */
 
+/*
+
+              1
+           /    \
+
+          2      6
+         /  \    /\
+         4  5   7  8 
+
+
+*/
+
+
+/*
+
+   4 5 6 7 3 2 1
+
+   l           m     h
+   0 1 1 1 1 1 0 2 0 2 2
+
+   1 0  0 1 0 1 0 1 1 1 
+
+    int main()
+    {
+        retur
+    }
+
+    min = 2
+
+    3 5 2  7 8 4 1 
+
+
+    |    
+    | 2
+    | 5 
+    | 3 
+
+    2*new_min < min+min 
+    2*new_min - min < min
+
+    min > new_min ;
+
+
+
+ T  1  2  3  4  5
+    6  7  8  9  10
+    11 12 13 14 15
+    16 17 18 19 20
+ B  21 22 23 24 25 
+    L           R
+
+
+*/
+
+/*
+    // all nines case 
+    // odd length
+    12345  --> 12421
+    21954  --> 22922
+
+    // even length
+    123456 --> 124421
+    129956
+
+    // 
+
+*/
+
+/*
+ 
+ 1->2->3->4->5->6
+
+
+ABCDE
+
+A____E   
+_B__D_
+__C__
+_B__D_    
+A____E
+
+
+        P  C  N
+ 4->3->2->1  
+
+
+1->2->3->4
+
+1
+
+Node *curr,*next,*pre;
+
+curr = head; pre=NULL;
+
+while(curr!=NULL)
+{
+    next = curr->next;
+    curr->next = pre;
+    pre = curr;
+    curr = next;
+}
+
+return pre;
+
+         s
+1->2->3->4->5->6->7
+               f
+
+      s
+1->2->3->4->5->6
+            f 
+*/
+
+
+/*
+
+1 2 3 4 5
+3 4 5 1 2
+
+*/

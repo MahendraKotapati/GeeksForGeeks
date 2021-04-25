@@ -26,7 +26,7 @@ int main()
                 swap(arr[mid],arr[low]),low++,mid++;
             else if(arr[mid]==1)
                 mid++;
-            else   
+            else // arr[mid]==2  
                 swap(arr[mid],arr[high]),high--;
         }
         

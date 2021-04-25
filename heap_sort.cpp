@@ -1,4 +1,6 @@
 // refer https://www.programiz.com/dsa/heap-sort
+// https://www.youtube.com/watch?v=HI97KDV23Ig build heap complexity 
+// heap operations : https://afteracademy.com/blog/operations-on-heaps
 
 #include<bits/stdc++.h>
 #define F first
