@@ -9,7 +9,6 @@
 // { Driver Code Starts
 #include <bits/stdc++.h>
 
-using namespace std;
 
 vector<vector<int> > fourSum(vector<int> &a, int k);
 
@@ -58,7 +57,7 @@ vector<vector<int> > fourSum(vector<int> &arr, int k) {
             curr_sum = k - (arr[p]+arr[q]);
             l = q+1; r = n-1;
             
-            while(l<r)
+            while(l<r)   
             {
                 if(arr[l]+arr[r]==curr_sum)
                     ans.push_back(vector<int>{arr[p],arr[q],arr[l],arr[r]});
@@ -439,3 +438,6 @@ return pre;
 3 4 5 1 2
 
 */
+
+#include<bits/stdc++.h>
+using namespace std;
